@@ -25,6 +25,10 @@ jobs:
         uses: gradle/actions/setup-gradle@v4
         with:
           gradle-version: '8.4'
+      - name: Place Launcher Icon
+        run: |
+          mkdir -p app/src/main/res/mipmap-xxxhdpi
+          if [ -f "1795771799773.jpg" ]; then cp "1795771799773.jpg" "app/src/main/res/mipmap-xxxhdpi/ic_launcher.jpg"; fi
 
       - name: Build Debug APK
         run: gradle assembleDebug --no-daemon
